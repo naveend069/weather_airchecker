@@ -12,7 +12,7 @@ body {
   justify-content: center;
 }
 
-/* Center the container and header, stack with spacing */
+
 .container, header {
   width: 100%;
   max-width: 420px;
@@ -85,7 +85,7 @@ body {
   to   { opacity: 1; transform: translateY(0);}
 }
 
-/* Header styles */
+
 header {
   background: rgba(255, 255, 255, 0.82);
   box-shadow: 0 4px 16px 0 rgba(31,38,135,0.12);
@@ -102,7 +102,7 @@ header > h1:first-child {
   font-weight: 800;
 }
 
-/* Navigation styles */
+
 header nav ul {
   list-style: none;
   padding: 0;

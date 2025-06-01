@@ -1,4 +1,5 @@
-const API_KEY = "f9f2e0111adde220cd19be24532a3e28"; // <-- Replace with your own key
+const API_KEY = "f9f2e0111adde220cd19be24532a3e28"; 
+
 
 document.getElementById('searchForm').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -7,21 +8,23 @@ document.getElementById('searchForm').addEventListener('submit', async function(
   document.getElementById('results').innerHTML = 'Loading...';
 
   try {
-    // 1. Get coordinates for city
+    
     const geoRes = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=${API_KEY}`);
     const geoData = await geoRes.json();
     if (!geoData[0]) throw new Error('City not found');
     const { lat, lon } = geoData[0];
 
-    // 2. Get air quality data
+   
+    
     const airRes = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`);
     const airData = await airRes.json();
 
-    // 3. Get weather data
+   
     const weatherRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`);
     const weatherData = await weatherRes.json();
 
-    // 4. Show results
+   
+    
     displayResults(city, airData, weatherData);
     setDynamicBackground(weatherData.weather[0].main.toLowerCase());
   } catch (err) {
